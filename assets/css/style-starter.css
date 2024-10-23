@@ -17915,6 +17915,12 @@ fieldset:disabled .btn {
 }
 [data-theme="dark"] svg {
     filter: invert(1);
+}   
+[data-theme="dark"] .links-uteis {
+    color: rgb(175, 175, 175);
+}
+[data-theme="dark"] .contato-info li a {
+    color: rgb(175, 175, 175);
 }
 
 .noscroll {

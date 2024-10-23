@@ -53,12 +53,7 @@ Author URL: http://w3layouts.com
           <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-lg-auto my-2 my-lg-0 navbar-nav-scroll">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#home">Inicio</a>
+                <a class="nav-link active" href="#home">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#sobre-nos">AssisTECH</a>
@@ -1231,94 +1226,7 @@ Author URL: http://w3layouts.com
 
     <!-- footer -->
     <section class="w3l-footer-29-main">
-      <!-- <div class="footer-29 py-5">
-        <div class="container py-lg-4">
-          <div class="row footer-top-29">
-            <div class="col-lg-4 col-md-6 footer-list-29 footer-1 pe-lg-5">
-              <div class="footer-logo mb-4">
-                <h2>
-                  <a class="navbar-brand" href="index.html">
-                    <img
-                      src="https://www.assistechpublicacoes.com.br/wp-content/uploads/2022/08/topo_site.png"
-                      alt=""
-                    />
-                  </a>
-                </h2>
-              </div>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur elit.Pellen tesque
-                libero ut justo, ultrices in ligula accusantium libero fugit.
-              </p>
-              <div class="w3l-two-buttons mt-4">
-                <a href="#trail" class="btn btn-primary btn-style">
-                  Try it For Free
-                </a>
-              </div>
-              <div class="main-social-footer-29 mt-5">
-                <a href="#facebook" class="facebook"
-                  ><span class="fab fa-facebook-f"></span
-                ></a>
-                <a href="#twitter" class="twitter"
-                  ><span class="fab fa-twitter"></span
-                ></a>
-                <a href="#instagram" class="instagram"
-                  ><span class="fab fa-instagram"></span
-                ></a>
-                <a href="#linkedin" class="linkedin"
-                  ><span class="fab fa-linkedin-in"></span
-                ></a>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-6 footer-list-29 footer-2 mt-sm-0 mt-5">
-              <ul>
-                <h6 class="footer-title-29">Links</h6>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="blog.html"> Blog posts</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="blog.html"> Blog posts</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-5">
-              <h6 class="footer-title-29">Services</h6>
-              <ul>
-                <li><a href="#traning">Web Design</a></li>
-                <li><a href="#traning">Development</a></li>
-                <li><a href="#traning">Marketing Plans</a></li>
-                <li><a href="#marketplace">Digital Services</a></li>
-                <li><a href="#experts">Email Marketing</a></li>
-                <li><a href="#platform">Product Selling</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5">
-              <h6 class="footer-title-29">More Info</h6>
-              <ul>
-                <li><a href="#seo">Offline SEO</a></li>
-                <li><a href="#traning">Development</a></li>
-                <li><a href="#hack">Growth Hacking</a></li>
-                <li><a href="#studio">Film Studio</a></li>
-                <li><a href="#branding">Branding</a></li>
-                <li><a href="#experts">Email Marketing</a></li>
-                <li><a href="#marketplace">Lead Generation</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5">
-              <h6 class="footer-title-29">Support</h6>
-              <ul>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#secutiry">Security</a></li>
-
-                <li><a href="#proj">Products</a></li>
-                <li><a href="#efaq">faQ</a></li>
-                <li><a href="#help">Help</a></li>
-                <li><a href="#mail">Mail Us</a></li>
-                <li><a href="#terms">Terms </a></li>
-                <li><a href="#policy">Privacy Policy</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div> -->
+  
       <!-- copyright -->
       <section class="w3l-copyright text-center">
         <div class="container">
@@ -1421,7 +1329,29 @@ Author URL: http://w3layouts.com
       });
     </script>
     <!-- //disable body scroll which navbar is in active -->
+    <script>
+        
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
+        window.addEventListener('scroll', () => {
+          let scrollPosition = window.pageYOffset;
+
+          navLinks.forEach(link => {
+            const section = document.querySelector(link.getAttribute('href'));
+
+            if (section) {
+              const sectionTop = section.offsetTop - 300;
+              const sectionHeight = section.offsetHeight;
+
+              if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+              }
+            }
+          });
+        });
+
+    </script>
     <!-- //bootstrap -->
     <script src="assets/js/bootstrap.min.js"></script>
   </body>
