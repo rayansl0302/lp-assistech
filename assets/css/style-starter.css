@@ -17922,7 +17922,10 @@ fieldset:disabled .btn {
 [data-theme="dark"] .contato-info li a {
     color: rgb(175, 175, 175);
 }
+[data-theme="dark"] .leia-mais{
+    color: rgb(175, 175, 175);
 
+}
 .noscroll {
     overflow: hidden;
     height: 100vh;
