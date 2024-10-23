@@ -17885,8 +17885,9 @@ fieldset:disabled .btn {
     --iframe-filter: grayscale(0%);
     --bg-light: #f5f6f9;
     --layer: rgb(0 0 0 /30%);
-    --layer-1: rgb(0 0 0 / 75%);
+    --layer-1: rgb(0 0 0 / 60%);
     --bg-grey: #f5f6f9;
+    --bg-grey-2: #f5f6f9;
     --footer-bg: #010208;
     --card-bg: #fff;
     --photoboxPlaceholderRatio: 66.56%;
@@ -17905,9 +17906,10 @@ fieldset:disabled .btn {
     --dropdown-color: #191c1d;
     --iframe-filter: grayscale(100%);
     --layer: rgb(0 0 0 / 50%);
-    --layer-1: rgb(0 0 0 / 80%);
+    --layer-1: rgb(0 0 0 / 60%);
     --bg-light: #101112;
     --bg-grey: #101112;
+    --bg-grey-2: #101112;
     --card-bg: #888c96;
     --footer-bg: #000100;
     --photoboxPlaceholderRatio: 66.56%;
