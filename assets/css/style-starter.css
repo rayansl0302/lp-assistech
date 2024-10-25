@@ -4772,7 +4772,7 @@ fieldset:disabled .btn {
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    color: var(--secondary-color);
+    color: #76B017;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -18403,7 +18403,7 @@ h6.w3l-hny-top.text-center {
 
 /* header */
 header {
-    background-color: var(--bg-color);
+    background-color:var(--footer-bg);
     padding: 0px;
     transition: all 0.4s ease 0s;
     height: 90px;
@@ -18414,7 +18414,7 @@ header {
 
 header.nav-fixed {
     padding: 0px;
-    background-color: var(--bg-color);
+    background-color:var(--footer-bg);
     height: 80px;
     border-bottom: none;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 5%);
@@ -18456,7 +18456,7 @@ header.nav-fixed {
 .navbar-expand-lg .navbar-nav .nav-link.show,
 .navbar-expand-lg .navbar-nav .nav-link.active,
 .navbar-expand-lg .navbar-nav .nav-link:hover {
-    color: var(--secondary-color);
+    color: #76B017;
 }
 
 nav ul li a,
@@ -18474,7 +18474,7 @@ nav ul li a:before {
     transition: 0.3s;
     position: relative;
     text-transform: capitalize;
-    color: var(--nav-color);
+    color: #fff;
 }
 
 ul.dropdown-menu li {
@@ -18501,7 +18501,7 @@ a.dropdown-item:hover {
 
 a.dropdown-item.active {
     background: transparent;
-    color: var(--secondary-color);
+    color: #76B017;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu:before {
@@ -18645,7 +18645,7 @@ a.search-search:hover {
 }
 
 .nav-fixed .navbar-nav .nav-link {
-    color: var(--heading-color);
+    color: #fff;
     opacity: 0.9;
 }
 
