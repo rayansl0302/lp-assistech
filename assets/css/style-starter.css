@@ -18089,6 +18089,16 @@ p.white {
     font-family: 'Poppins', sans-serif;
 }
 
+.btn-style-correio {
+    padding: 18px 36px;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    transition: 0.3s ease-in;
+    border-radius: var(--border-radius);
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+}
 .btn-white {
     color: var(--primary-color);
     background: #fff;
@@ -18211,6 +18221,9 @@ a.read:hover span.fas {
 }
 
 @media (max-width: 1280px) {
+    .btn-style-correio{
+        padding:0px 32px;
+    }
     .btn-style {
         padding: 18px 34px;
     }
@@ -18224,6 +18237,9 @@ a.read:hover span.fas {
 
     .btn-style {
         padding: 18px 32px;
+    }
+    .btn-style-correio{
+        padding:7px 32px;
     }
 }
 
