@@ -21120,3 +21120,49 @@ p.vhny-para {
 
 /*--//w3l-footer-29-main--*/
 /*# sourceMappingURL=style-freedom.css.map */
+
+/* Classe personalizada para o contêiner de rolagem horizontal */
+.custom-scroll-container {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+  }
+  
+  /* Estilo da barra de rolagem */
+  .custom-scroll-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .custom-scroll-container::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 4px;
+  }
+  
+  .custom-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #333;
+  }
+  
+  /* Estilos dos cartões dentro do contêiner */
+  .custom-scroll-container .card {
+    min-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .custom-scroll-container .card:hover {
+    transform: translateY(-5px);
+  }
+  
