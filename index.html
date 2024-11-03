@@ -479,24 +479,24 @@
     </section>
     <!--//Carrosel de imagens de noticias->
     <!-- Seção de Notícias -->
-        <section class="w3l-img-grids" id="cards-noticias">
-          <div class="blog py-5" id="classes">
-            <div class="container py-lg-5">
-              <div class="header-secw3 text-center mb-5">
-                <h3 class="title-w3l mb-4">Notícias</h3>
-              </div>
-
-              <!-- Contêiner com overflow horizontal -->
-              <div
-                class="row flex-nowrap overflow-auto custom-scroll-container"
-                id="news-container"
-                style="gap: 1.5rem"
-              >
-                <!-- Os cards serão inseridos aqui dinamicamente -->
-              </div>
-            </div>
+    <section class="w3l-img-grids" id="cards-noticias">
+      <div class="blog py-5" id="classes">
+        <div class="container py-lg-5">
+          <div class="header-secw3 text-center mb-5">
+            <h3 class="title-w3l mb-4">Notícias</h3>
           </div>
-        </section>
+
+          <!-- Contêiner com overflow horizontal -->
+          <div
+            class="row flex-nowrap overflow-auto custom-scroll-container"
+            id="news-container"
+            style="gap: 1.5rem"
+          >
+            <!-- Os cards serão inseridos aqui dinamicamente -->
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Fim da Seção de Notícias -->
 
@@ -872,6 +872,7 @@
           <div class="row py-5">
             <div class="col-lg-6 w3l-project-left">
               <form
+                id="subscribe-form"
                 action="#"
                 method="post"
                 class="subscribe-wthree mt-lg-2 mt-4"
@@ -882,6 +883,7 @@
                     type="text"
                     placeholder="Seu nome*"
                     name="nome"
+                    id="nome"
                     required=""
                   />
                   <input
@@ -889,13 +891,15 @@
                     type="email"
                     placeholder="Seu melhor e-mail*"
                     name="email"
+                    id="email"
                     required=""
                   />
                   <input
                     class="form-control"
-                    type="number"
+                    type="tel"
                     placeholder="Seu número de Whatsapp*"
                     name="telefone"
+                    id="telefone"
                     required=""
                   />
                   <div class="form-group">
@@ -915,9 +919,9 @@
                   </div>
                   <textarea
                     class="form-control"
-                    type="number"
                     placeholder="Sua Mensagem*"
-                    name="telefone"
+                    name="mensagem"
+                    id="mensagem"
                     required=""
                   ></textarea>
                   <button class="btn btn-style btn-primary" type="submit">
@@ -1135,6 +1139,7 @@
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/jquery-1.9.1.min.js"></script>
     <script src="assets/js/cards-noticias.js"></script>
+    <script src="assets/js/contato.js"></script>
 
     <!-- faq -->
     <script>
