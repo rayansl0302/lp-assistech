@@ -50,13 +50,17 @@ $(document).ready(() => {
   
   function displayAutocompleteResults(data, formType, searchTerm) {
     let resultList = null;
+    let inputField = null;
   
     if (formType === "city_council") {
       resultList = $("#autocomplete-results-city-council ul");
+      inputField = $("#search-input-city-council");
     } else if (formType === "municipality") {
       resultList = $("#autocomplete-results-municipality ul");
+      inputField = $("#search-input-municipality");
     } else if (formType === "other_entities") {
       resultList = $("#autocomplete-results-other-entities ul");
+      inputField = $("#search-input-other-entities");
     }
   
     if (resultList) {
@@ -76,6 +80,13 @@ $(document).ready(() => {
   
         resultsToShow.forEach((name) => {
           const listItem = $("<li>").text(name);
+  
+          // Adicionar o evento de clique para preencher o campo de entrada
+          listItem.on("click", () => {
+            inputField.val(name); // Preenche o campo de entrada com o valor selecionado
+            resultList.parent().hide(); // Esconde a lista de resultados
+          });
+  
           resultList.append(listItem);
           console.log("Exibindo resultado:", name);
         });
