@@ -21166,3 +21166,18 @@ p.vhny-para {
     transform: translateY(-5px);
   }
   
+.autocomplete-results{
+    background: white;
+    border: 1px solid #ddd;
+    width: 48%;
+    max-height: 400px;
+    overflow: auto;
+    cursor: pointer;
+    margin-right: 16%;
+    margin-top: 1%;
+    padding: 4px;
+}
+.search-form{
+    width: 65%;
+    display: flex;
+}

@@ -19,7 +19,10 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css" />
     <!-- Font awesome 4-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <!--/Header-->
@@ -163,13 +166,34 @@
                       <section class="w3l-img-grids" id="gridsimg">
                         <div class="blog" id="classes">
                           <div class="container">
-                            <div class="d-flex justify-content-center align-items-center mt-4 mb-4 w-100">
-                              <form method="GET" class="d-sm-flex w-75">
-                                <input class="form-control me-2 w-75" type="search" placeholder="Pesquise aqui" aria-label="Search" required="">
-                                <button class="btn btn-style btn-primary" type="submit">
-                                  buscar
+                            <div
+                              class="d-flex justify-content-center align-items-center mt-4 mb-4 w-100 flex-column"
+                            >
+                              <form
+                                method="GET"
+                                class="search-form"
+                                onsubmit="return false;"
+                              >
+                                <input
+                                  class="form-control me-2 w-75"
+                                  type="search"
+                                  placeholder="Pesquise cidade para Câmara dos Vereadores"
+                                  aria-label="Search"
+                                  required
+                                  id="search-input-city-council"
+                                  oninput="handleSearch(event, 'city_council')"
+                                />
+                                <button
+                                  class="btn btn-style btn-primary"
+                                  type="button"
+                                  onclick="executeSearch('city_council')"
+                                >
+                                  Buscar
                                 </button>
                               </form>
+                              <div id="autocomplete-results-city-council" class="autocomplete-results">
+                                <ul></ul>
+                            </div>
                             </div>
                             <div class="row align-items-center">
                               <div class="col-lg-4 col-md-6 item mt-lg-0 mt-5">
@@ -326,13 +350,34 @@
                       <section class="w3l-img-grids" id="gridsimg">
                         <div class="blog" id="classes">
                           <div class="container">
-                            <div class="d-flex justify-content-center align-items-center mt-4 mb-4 w-100">
-                              <form method="GET" class="d-sm-flex w-75">
-                                <input class="form-control me-2 w-75" type="search" placeholder="Pesquise aqui" aria-label="Search" required="">
-                                <button class="btn btn-style btn-primary" type="submit">
-                                  buscar
+                            <div
+                              class="d-flex justify-content-center align-items-center mt-4 mb-4 w-100 flex-column"
+                            >
+                              <form
+                                method="GET"
+                                class="search-form"
+                                onsubmit="return false;"
+                              >
+                                <input
+                                  class="form-control me-2 w-75"
+                                  type="search"
+                                  placeholder="Pesquise cidade para Prefeitura"
+                                  aria-label="Search"
+                                  required
+                                  id="search-input-municipality"
+                                  oninput="handleSearch(event, 'municipality')"
+                                />
+                                <button
+                                  class="btn btn-style btn-primary"
+                                  type="button"
+                                  onclick="executeSearch('municipality')"
+                                >
+                                  Buscar
                                 </button>
                               </form>
+                              <div id="autocomplete-results-municipality" class="autocomplete-results">
+                                <ul></ul>
+                            </div>
                             </div>
                             <div class="row align-items-center">
                               <div class="col-lg-4 col-md-6 item mt-lg-0 mt-5">
@@ -484,18 +529,39 @@
                   aria-labelledby="hor_1_tab_item-2"
                   style="border-color: rgb(193, 193, 193)"
                 >
-                  <div class="row ">
+                  <div class="row">
                     <div class="col-lg-12 tabw3-left">
                       <section class="w3l-img-grids" id="gridsimg">
                         <div class="blog" id="classes">
                           <div class="container">
-                            <div class="d-flex justify-content-center align-items-center mt-4 mb-4 w-100">
-                              <form method="GET" class="d-sm-flex w-75">
-                                <input class="form-control me-2 w-75" type="search" placeholder="Pesquise aqui" aria-label="Search" required="">
-                                <button class="btn btn-style btn-primary" type="submit">
-                                  buscar
+                            <div
+                              class="d-flex justify-content-center align-items-center mt-4 mb-4 w-100 flex-column"
+                            >
+                              <form
+                                method="GET"
+                                class="search-form"
+                                onsubmit="return false;"
+                              >
+                                <input
+                                  class="form-control me-2 w-75"
+                                  type="search"
+                                  placeholder="Pesquise cidade para Outras Entidades"
+                                  aria-label="Search"
+                                  required
+                                  id="search-input-other-entities"
+                                  oninput="handleSearch(event, 'other_entities')"
+                                />
+                                <button
+                                  class="btn btn-style btn-primary"
+                                  type="button"
+                                  onclick="executeSearch('other_entities')"
+                                >
+                                  Buscar
                                 </button>
                               </form>
+                              <div id="autocomplete-results-other-entities" class="autocomplete-results">
+                                <ul></ul>
+                            </div>
                             </div>
                             <div class="row align-items-center">
                               <div class="col-lg-4 col-md-6 item mt-lg-0 mt-5">
@@ -678,7 +744,10 @@
 
     <!-- Js scripts -->
     <!-- Template JavaScript -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <!-- Adicione este script do jQuery antes do seu próprio script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/search.js"></script>
+
     <!--/Tabs-->
     <script src="assets/js/jquery-1.9.1.min.js"></script>
     <script src="assets/js/easyResponsiveTabs.js"></script>
