@@ -21124,7 +21124,6 @@ p.vhny-para {
 /* Classe personalizada para o contêiner de rolagem horizontal */
 .custom-scroll-container {
     display: flex;
-    gap: 1.5rem;
     overflow-x: auto;
     scroll-behavior: smooth;
     padding-bottom: 1rem;
@@ -21180,4 +21179,8 @@ p.vhny-para {
 .search-form{
     width: 65%;
     display: flex;
+}
+
+.post-paragraphs p{
+    text-align: justify;
 }
