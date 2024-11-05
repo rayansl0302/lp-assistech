@@ -13,7 +13,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         if (post) {
             document.querySelector(".post-title").textContent = post.title;
-            document.querySelector(".post-date").textContent = post.date;
+
+            // Converte e renderiza a data no formato dd/mm/aaaa
+            const postDate = new Date(post.date).toLocaleDateString("pt-BR");
+            document.querySelector(".post-date").textContent = postDate;
+
             document.querySelector(".post-author").textContent = post.author;
 
             const mainImage = document.querySelector(".main-image");

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               <div class="w3img-grids-info-gd position-relative">
                 <a href="#services">
                   <div class="page">
-                    <div class="photobox photobox_triangular photobox_scale-rotated">
+                    <a href="noticia-detalhe.html?title=${encodeURIComponent(postSlug)}" class="photobox photobox_triangular photobox_scale-rotated">
                       <div class="photobox__previewbox media-placeholder">
                         <img
                           class="img-fluid photobox__preview media-placeholder__media radius-image w-100"
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                           <span>${post.category || 'Notícia'}</span>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </a>
                 <div class="w3img-grids-info-gd-content mt-4">
