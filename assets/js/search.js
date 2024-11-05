@@ -22,6 +22,8 @@ $(document).ready(() => {
     try {
       const response = await fetch(endpoint);
       const data = await response.json();
+      console.log("Dados recebidos da API:", data);
+
   
       displayAutocompleteResults(data, formType, searchTerm);
     } catch (error) {
@@ -64,20 +66,24 @@ $(document).ready(() => {
       resultList.empty();
   
       if (data.data && data.data.length > 0) {
-        const mappedResults = data.data.map((item) => item.name || item.label);
-  
-        const filteredResults = mappedResults.filter((name) =>
-          name.toLowerCase().includes(searchTerm)
+        const filteredResults = data.data.filter((item) =>
+          (item.name || item.label).toLowerCase().includes(searchTerm)
         );
   
         const resultsToShow = filteredResults.slice(0, 10);
   
-        resultsToShow.forEach((name) => {
+        resultsToShow.forEach((item) => {
+          const name = item.name || item.label;
+          const slug = item.slug;
+  
           const listItem = $("<li>").text(name);
   
           listItem.on("click", () => {
             inputField.val(name);
             resultList.parent().hide();
+  
+            const url = `https://app.assistechpublicacoes.com.br/diario-oficial/${slug}`;
+            window.location.href = url;
           });
   
           resultList.append(listItem);
@@ -93,6 +99,7 @@ $(document).ready(() => {
       }
     }
   }
+  
   
   function executeSearch(formType) {
     const input = $(`#search-input-${formType}`)[0];
