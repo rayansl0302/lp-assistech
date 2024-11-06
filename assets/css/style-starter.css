@@ -2231,7 +2231,15 @@ progress {
     font-size: .875em;
     color: #6c757d
 }
-
+.input-busca{
+    margin-right: 1rem;
+    width: 75%;
+}
+@media(max-witdh:768px){
+    .input-busca{
+        margin-right: 0px;
+    }
+}
 .form-control {
     display: block;
     width: 100%;
@@ -19255,6 +19263,11 @@ triangular mask
 position: relative;
 z-index: 99;
 }
+@media(max-width:768px){
+    #conteudo_entidade{
+        margin-top: 10%;
+    }
+}
 ul.resp-tabs-list,
 p {
     margin: 0px;
@@ -19274,6 +19287,11 @@ p {
     color: var(--heading-color);
     margin-right: 1%;
     border-radius: var(--border-radius);
+}
+@media (max-width:768px){
+    .resp-tabs-list li{
+        width: 100%;
+    }
 }
 
 .resp-tabs-list li img {
@@ -21200,7 +21218,16 @@ p.vhny-para {
     width: 65%;
     display: flex;
 }
-
+@media(max-width:765px){
+    .autocomplete-results{
+        width: 100%;
+        margin-left: 15%;
+    }
+.search-form{
+        width: 100%;
+        gap:10px;
+}
+}
 .post-paragraphs p{
     text-align: justify;
 }
