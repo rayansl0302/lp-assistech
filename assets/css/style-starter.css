@@ -19235,7 +19235,7 @@ triangular mask
     background: var(--bg-grey);
 }
 .bkg-entidades {
-    background-image: url('../images/bkg-entidades-publicas.png');
+    background-image: url('../images/bkg-entidades-publicas.webp');
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
