@@ -22,7 +22,11 @@ async function handleSearch(event, formType) {
   try {
     const response = await fetch(endpoint);
     const data = await response.json();
-    console.log("Dados recebidos da API:", data);
+
+    // Add console log for city_council endpoint data
+    if (formType === "city_council") {
+      console.log("Dados recebidos da API para city_council:", data);
+    }
 
     displayAutocompleteResults(data, formType, searchTerm);
   } catch (error) {
@@ -69,11 +73,16 @@ function displayAutocompleteResults(data, formType, searchTerm) {
         (item.name || item.label).toLowerCase().includes(searchTerm)
       );
 
-      const resultsToShow = filteredResults.slice(0, 10);
+      const resultsToShow = filteredResults;
 
       resultsToShow.forEach((item) => {
-        const name = item.name || item.label;
+        let name = item.name || item.label;
         const slug = item.slug;
+
+        // Add "Prefeitura Municipal de" prefix for municipality results
+        if (formType === "municipality") {
+          name = `Prefeitura Municipal de ${name}`;
+        }
 
         const listItem = $("<li>").text(name);
 
