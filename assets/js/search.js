@@ -12,7 +12,7 @@ async function handleSearch(event, formType) {
   }
 
   if (formType === "city_council") {
-    endpoint = `https://api-staging.assistechpublicacoes.com.br/v1/public/tenants?government_body=city_council&search=${searchTerm}`;
+    endpoint = `https://api.assistechpublicacoes.com.br/v1/public/tenants?government_body=city_council&search=${searchTerm}`;
   } else if (formType === "municipality") {
     endpoint = `https://api-staging.assistechpublicacoes.com.br/v1/public/locations/BA/cities?search=${searchTerm}`;
   } else if (formType === "other_entities") {
