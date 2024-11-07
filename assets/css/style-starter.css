@@ -4780,7 +4780,7 @@ fieldset:disabled .btn {
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #76B017;
+    color: #007EA7;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -18463,6 +18463,7 @@ header.nav-fixed {
 
 .navbar .navbar-brand img {
     transition: all 0.5s ease;
+    max-width: 250px;
 }
 
 .navbar-nav .nav-item {
@@ -18480,7 +18481,7 @@ header.nav-fixed {
 .navbar-expand-lg .navbar-nav .nav-link.show,
 .navbar-expand-lg .navbar-nav .nav-link.active,
 .navbar-expand-lg .navbar-nav .nav-link:hover {
-    color: #76B017;
+    color: #007EA7;
 }
 
 nav ul li a,
@@ -18525,7 +18526,7 @@ a.dropdown-item:hover {
 
 a.dropdown-item.active {
     background: transparent;
-    color: #76B017;
+    color: #007EA7;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu:before {
@@ -21230,4 +21231,7 @@ p.vhny-para {
 }
 .post-paragraphs p{
     text-align: justify;
+}
+.navbar-brand img {
+    max-width: 250px;
 }
