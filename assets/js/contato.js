@@ -7,9 +7,8 @@ $(document).ready(function () {
     var whatsapp = $('input[name="telefone"]').val();
     var company = $("#entidade").val();
     var message = $('textarea[name="mensagem"]').val();
-    var recaptchaToken = grecaptcha.getResponse(); // Obtém o token do reCAPTCHA
+    var recaptchaToken = grecaptcha.getResponse();
 
-    // Verifica se o reCAPTCHA foi validado
     if (!recaptchaToken) {
       alert("Por favor, complete o reCAPTCHA.");
       return;
@@ -31,7 +30,7 @@ $(document).ready(function () {
         success: function (response) {
           alert("Mensagem enviada com sucesso!");
           $("form.subscribe-wthree")[0].reset();
-          grecaptcha.reset(); // Reseta o reCAPTCHA após o envio bem-sucedido
+          grecaptcha.reset(); 
         },
         error: function (xhr, status, error) {
           var errorMessage =
