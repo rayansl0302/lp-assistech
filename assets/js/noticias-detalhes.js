@@ -29,10 +29,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             const paragraphsContainer = document.querySelector(".post-paragraphs");
             paragraphsContainer.innerHTML = "";
 
-            // Adiciona o conteúdo como um único parágrafo
+            // Adiciona o conteúdo formatado com quebra de linha
             const pElement = document.createElement("p");
             pElement.classList.add("mb-4");
-            pElement.textContent = post.content;
+            // Substitui \n por <br> para renderizar quebras de linha corretamente
+            pElement.innerHTML = post.content.replace(/\n/g, "<br>");
             paragraphsContainer.appendChild(pElement);
         } else {
             console.error("Post não encontrado");

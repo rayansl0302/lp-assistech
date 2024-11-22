@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <h6 class="title-subhny mb-2">
                   ${postDate} /// ${post.comments || 'Nenhum'} comentário
                 </h6>
-                <p class="mb-2">${post.content.slice(0, 100)}...</p>
+                <p class="mb-2">${post.description}.</p>
                 <a href="noticia-detalhe.html?title=${encodeURIComponent(postSlug)}" class="mt-2 leia-mais">Leia Mais »</a>
               </div>
             </div>
