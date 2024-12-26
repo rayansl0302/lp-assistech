@@ -16,7 +16,7 @@ async function handleSearch(event, formType) {
   } else if (formType === "municipality") {
     endpoint = `https://api-staging.assistechpublicacoes.com.br/v1/public/locations/BA/cities?search=${searchTerm}`;
   } else if (formType === "other_entities") {
-    endpoint = `https://api-staging.assistechpublicacoes.com.br/v1/public/tenants?government_body=other&search=${searchTerm}`;
+    endpoint = `https://api-staging.assistechpublicacoes.com.br/v1/public/tenants?government_body=house_of_representatives,federal_senate,state_government_palace,legislative_assembly,ministries,court,state_department,municipal_department,company,other&search=${searchTerm}`;
   }
 
   try {
