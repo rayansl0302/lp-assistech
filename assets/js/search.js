@@ -14,7 +14,7 @@ async function handleSearch(event, formType) {
   if (formType === "city_council") {
     endpoint = `https://api.assistechpublicacoes.com.br/v1/public/tenants?government_body=city_council&search=${searchTerm}`;
   } else if (formType === "municipality") {
-    endpoint = `https://api.assistechpublicacoes.com.br/v1/public/locations/BA,SP/cities?search=${searchTerm}`;
+    endpoint = `https://api.assistechpublicacoes.com.br/v1/public/locations/BA,SP/cities?label=${searchTerm}`;
   } else if (formType === "other_entities") {
     endpoint = `https://api.assistechpublicacoes.com.br/v1/public/tenants?government_body=house_of_representatives,federal_senate,state_government_palace,legislative_assembly,ministries,court,state_department,municipal_department,company,other&search=${searchTerm}`;
   }
@@ -23,12 +23,24 @@ async function handleSearch(event, formType) {
     const response = await fetch(endpoint);
     const data = await response.json();
 
-    // Add console log for city_council endpoint data
+    // Add console log for each endpoint data
     if (formType === "city_council") {
       console.log("Dados recebidos da API para city_council:", data);
+      displayAutocompleteResults(data, formType, searchTerm);
+    } else if (formType === "municipality") {
+      console.log("Dados recebidos da API para municipality:", data);
+      if (data.data && data.data.length > 0) {
+        const cityCode = data.data[0].code; // Assuming the first result is the desired city
+        const cityHallEndpoint = `https://api.assistechpublicacoes.com.br/v1/public/tenants?government_body=city_hall&city_code=${cityCode}`;
+        const cityHallResponse = await fetch(cityHallEndpoint);
+        const cityHallData = await cityHallResponse.json();
+        console.log("Dados recebidos da API para city_hall:", cityHallData);
+        displayAutocompleteResults(cityHallData, formType, searchTerm);
+      }
+    } else if (formType === "other_entities") {
+      console.log("Dados recebidos da API para other_entities:", data);
+      displayAutocompleteResults(data, formType, searchTerm);
     }
-
-    displayAutocompleteResults(data, formType, searchTerm);
   } catch (error) {
     console.error("Erro ao buscar dados:", error);
   }
