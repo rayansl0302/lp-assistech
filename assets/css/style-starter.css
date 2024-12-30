@@ -21207,7 +21207,7 @@ p.vhny-para {
 .autocomplete-results{
     background: white;
     border: 1px solid #ccc;
-    width: 55.5vw;
+    width: 44.5vw;
     max-height: 400px;
     overflow: auto;
     cursor: pointer;
@@ -21215,7 +21215,7 @@ p.vhny-para {
     padding: 4px;
 }
 .search-form{
-    width: 65%;
+    width: 45.5vw;
     display: flex;
 }
 @media(max-width:765px){
