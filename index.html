@@ -873,10 +873,11 @@
             <div class="col-lg-6 w3l-project-left">
               <form
                 id="subscribe-form"
-                action="#"
+                action="https://api.assistechpublicacoes.com.br/v1/public/contacts"
                 method="post"
                 class="subscribe-wthree mt-lg-2 mt-4"
               >
+              <input id="_recaptcha" type="hidden">
                 <div class="d-flex flex-column subscribe-wthree-field">
                   <input
                     class="form-control"
@@ -924,15 +925,8 @@
                     id="mensagem"
                     required=""
                   ></textarea>
-                  <div
-                    class="g-recaptcha"
-                    data-sitekey="6Ld0l34qAAAAAEyi_gd5JRt8d_XEZIW0GIMF8hIC"
-                  ></div>
-                  <script
-                    src="https://www.google.com/recaptcha/api.js"
-                    async
-                    defer
-                  ></script>
+                  <script src="https://www.google.com/recaptcha/api.js?render=6Ld0l34qAAAAAEyi_gd5JRt8d_XEZIW0GIMF8hIC"></script>
+
                   <button class="btn btn-style btn-primary" type="submit">
                     Enviar
                   </button>
@@ -1098,6 +1092,24 @@
         </div>
       </div>
     </section>
+
+    <script defer>
+      grecaptcha.ready(function() {
+        console.log('oi')
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Impede o envio imediato do formulário
+
+          // Solicita o token do reCAPTCHA
+          grecaptcha.execute('6Ld0l34qAAAAAEyi_gd5JRt8d_XEZIW0GIMF8hIC', {action: 'contact'}).then(function(token) {
+            // Preenche o campo oculto com o token
+            document.getElementById('_recaptcha').value = token;
+            // Submete o formulário após o token ser gerado
+            alert(token);
+            alert('submit aqui via fecth');
+          });
+        });
+      });
+    </script>
     <!--//w3l-project-->
 
     <!-- footer -->
