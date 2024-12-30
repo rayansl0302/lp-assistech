@@ -21207,11 +21207,11 @@ p.vhny-para {
 .autocomplete-results{
     background: white;
     border: 1px solid #ccc;
-    width:100%;
+    width: 55.5vw;
     max-height: 400px;
     overflow: auto;
     cursor: pointer;
-    margin-right: 16%;
+    margin-right: 1.5vh;
     padding: 4px;
 }
 .search-form{
