@@ -21207,7 +21207,7 @@ p.vhny-para {
 .autocomplete-results{
     background: white;
     border: 1px solid #ccc;
-    width: 48%;
+    width:100%;
     max-height: 400px;
     overflow: auto;
     cursor: pointer;
