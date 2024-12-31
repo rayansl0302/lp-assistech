@@ -883,8 +883,8 @@
                     class="form-control"
                     type="text"
                     placeholder="Seu nome*"
-                    name="nome"
-                    id="nome"
+                    name="name"
+                    id="name"
                     required=""
                   />
                   <input
@@ -899,30 +899,30 @@
                     class="form-control"
                     type="tel"
                     placeholder="Seu número de Whatsapp*"
-                    name="telefone"
-                    id="telefone"
+                    name="whatsapp"
+                    id="whatsapp"
                     required=""
                   />
                   <div class="form-group">
                     <select
                       class="form-control"
-                      id="entidade"
-                      name="entidade"
+                      id="government_body"
+                      name="government_body"
                       required=""
                     >
                       <option value="" disabled selected>
                         Selecione a entidade
                       </option>
-                      <option value="camara">Câmara</option>
-                      <option value="prefeitura">Prefeitura</option>
-                      <option value="outras">Outras Entidades</option>
+                      <option value="city_council">Câmara</option>
+                      <option value="city_hall">Prefeitura</option>
+                      <option value="other">Outras Entidades</option>
                     </select>
                   </div>
                   <textarea
                     class="form-control"
                     placeholder="Sua Mensagem*"
-                    name="mensagem"
-                    id="mensagem"
+                    name="message"
+                    id="message"
                     required=""
                   ></textarea>
                   <script src="https://www.google.com/recaptcha/api.js?render=6Ld0l34qAAAAAEyi_gd5JRt8d_XEZIW0GIMF8hIC"></script>
@@ -1097,15 +1097,31 @@
       grecaptcha.ready(function() {
         console.log('oi')
         document.getElementById('subscribe-form').addEventListener('submit', function(event) {
-          event.preventDefault(); // Impede o envio imediato do formulário
-
-          // Solicita o token do reCAPTCHA
+          event.preventDefault();
           grecaptcha.execute('6Ld0l34qAAAAAEyi_gd5JRt8d_XEZIW0GIMF8hIC', {action: 'contact'}).then(function(token) {
-            // Preenche o campo oculto com o token
             document.getElementById('_recaptcha').value = token;
-            // Submete o formulário após o token ser gerado
-            alert(token);
-            alert('submit aqui via fecth');
+          const formData = new FormData(document.getElementById('subscribe-form'));
+          const data = Object.fromEntries(formData.entries());
+          data['_recaptcha'] = token;
+
+          fetch('https://api.assistechpublicacoes.com.br/v1/public/contacts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
+            .then(response => {
+              if (response.ok) {
+                alert('Mensagem enviada com sucesso!');
+              } else {
+                alert('Erro ao enviar a mensagem. Tente novamente.');
+              }
+            })
+            .catch(error => {
+              console.error('Erro:', error);
+              alert('Erro ao enviar a mensagem. Verifique sua conexão e tente novamente.');
+            });
           });
         });
       });
