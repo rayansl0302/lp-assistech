@@ -56,7 +56,9 @@
                 <a class="nav-link" href="./index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./index.html#sobre-nos">AssistechPWR</a>
+                <a class="nav-link" href="./index.html#sobre-nos"
+                  >AssistechPWR</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./index.html#nossos-servicos"
@@ -152,7 +154,6 @@
                 class="resp-tabs-container hor_1"
                 style="border-color: rgb(193, 193, 193)"
               >
-        
                 <div
                   class="products-content resp-tab-content hor_1 resp-tab-content-active"
                   aria-labelledby="hor_1_tab_item-0"
@@ -196,7 +197,6 @@
                                 <ul></ul>
                               </div>
                             </div>
-                           
                           </div>
                         </div>
                       </section>
@@ -246,7 +246,6 @@
                                 <ul></ul>
                               </div>
                             </div>
-                           
                           </div>
                         </div>
                       </section>
@@ -296,7 +295,6 @@
                                 <ul></ul>
                               </div>
                             </div>
-                           
                           </div>
                         </div>
                       </section>
@@ -316,8 +314,8 @@
       <section class="w3l-copyright text-center">
         <div class="container">
           <p class="copy-footer-29">
-            Copyright © 2022 AssistechPWR Publicações Oficiais – Todos os direitos
-            reservados
+            Copyright © 2022 AssistechPWR Publicações Oficiais – Todos os
+            direitos reservados
           </p>
         </div>
 
@@ -358,7 +356,18 @@
     <!-- Template JavaScript -->
     <!-- Adicione este script do jQuery antes do seu próprio script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/search.js"></script>
+    <script type="module">
+      import { handleSearch, executeSearch } from "./assets/js/search.js";
+
+      document.getElementById("search-input-city-council").oninput = (event) =>
+        handleSearch(event, "city_council");
+      document.getElementById("search-input-municipality").oninput = (event) =>
+        handleSearch(event, "municipality");
+      document.getElementById("search-input-other-entities").oninput = (
+        event
+      ) => handleSearch(event, "other_entities");
+    </script>
+    <script src="assets/js/config.js"></script>
 
     <!--/Tabs-->
     <script src="assets/js/jquery-1.9.1.min.js"></script>
