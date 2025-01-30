@@ -19,7 +19,7 @@ export async function handleSearch(event, formType) {
     endpoint = `${apiBaseUrl}/tenants?government_body=city_council&search=${searchTerm}`;
   } else if (formType === "municipality") {
     const cityName = searchTerm.replace("prefeitura municipal de ", "").trim();
-    endpoint = `${apiBaseUrl}/locations/BA,SP/cities?label=${cityName}`;
+    endpoint = `${apiBaseUrl}/locations/BA,SP,MG/cities?label=${cityName}`;
   } else if (formType === "other_entities") {
     endpoint = `${apiBaseUrl}/tenants?government_body=house_of_representatives,federal_senate,state_government_palace,legislative_assembly,ministries,court,state_department,municipal_department,company,other&search=${searchTerm}`;
   }
