@@ -1,13 +1,46 @@
 import { getApiUrl, getAppUrl } from './config.js';
 
+// Função para inicializar o input da prefeitura
+function initializeMunicipalityInput() {
+  const input = $("#search-input-municipality");
+  
+  // Define o valor inicial e placeholder
+  input.val("Prefeitura Municipal de ");
+  input.attr("placeholder", "Prefeitura Municipal de [Digite a cidade]");
+  
+  // Previne que o usuário apague o prefixo
+  input.on('keydown', function(e) {
+    const prefixLength = "Prefeitura Municipal de ".length;
+    const cursorPosition = this.selectionStart;
+    
+    // Impede backspace e delete no prefixo
+    if ((e.keyCode === 8 || e.keyCode === 46) && cursorPosition <= prefixLength) {
+      e.preventDefault();
+    }
+  });
+
+  // Mantém o prefixo se o usuário tentar apagá-lo
+  input.on('input', function() {
+    if (!this.value.toLowerCase().startsWith("prefeitura municipal de ")) {
+      this.value = "Prefeitura Municipal de " + this.value.replace("Prefeitura Municipal de ", "");
+    }
+    this.setSelectionRange(this.value.length, this.value.length);
+  });
+}
+
+// Executa a inicialização quando o documento estiver pronto
+$(document).ready(function() {
+  initializeMunicipalityInput();
+});
+
 export async function handleSearch(event, formType) {
   console.log('handleSearch called with event:', event, 'and formType:', formType);
   
-  const searchTerm = event.target.value.trim().toLowerCase();
+  let searchTerm = event.target.value.trim().toLowerCase();
   let endpoint = "";
 
-  if (searchTerm === "") {
-    console.log('Search term is empty, clearing autocomplete results');
+  if (searchTerm === "prefeitura municipal de " || searchTerm === "") {
+    console.log('Search term is empty or only prefix, clearing autocomplete results');
     clearAutocompleteResults(formType);
     return;
   }
@@ -30,7 +63,6 @@ export async function handleSearch(event, formType) {
     const response = await fetch(endpoint);
     const data = await response.json();
 
-    // Add console log for each endpoint data
     if (formType === "city_council") {
       console.log("Dados recebidos da API para city_council:", data);
     } else if (formType === "municipality") {
@@ -84,12 +116,10 @@ function displayAutocompleteResults(data, formType, searchTerm) {
     if (data.data && data.data.length > 0) {
       const filteredResults = data.data.filter((item) => {
         const itemName = (item.name || item.label).toLowerCase();
-        if (searchTerm.startsWith("prefeitura municipal de ")) {
-          const cityName = searchTerm.split("prefeitura municipal de ")[1].trim();
-          return itemName.includes(cityName);
-        } else {
-          return itemName.includes(searchTerm);
-        }
+        const cityName = formType === "municipality" ? 
+          searchTerm.replace("prefeitura municipal de ", "").trim() : 
+          searchTerm;
+        return itemName.includes(cityName);
       });
 
       const resultsToShow = filteredResults;
@@ -97,9 +127,8 @@ function displayAutocompleteResults(data, formType, searchTerm) {
       resultsToShow.forEach((item) => {
         let name = item.name || item.label;
         const slug = item.slug;
-        const cityCode = item.code; // Assuming the city code is available here
+        const cityCode = item.code;
 
-        // Add "Prefeitura Municipal de" prefix for municipality results
         if (formType === "municipality") {
           name = `Prefeitura Municipal de ${name}`;
         }
