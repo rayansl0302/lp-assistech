@@ -1,4 +1,6 @@
-import { getApiUrl, getAppUrl } from './config.js';
+// Configuration import or global access
+const getApiUrl = window.CONFIG ? window.CONFIG.getApiUrl : () => {};
+const getAppUrl = window.CONFIG ? window.CONFIG.getAppUrl : () => {};
 
 // Função para inicializar o input da prefeitura
 function initializeMunicipalityInput() {
@@ -33,7 +35,8 @@ $(document).ready(function() {
   initializeMunicipalityInput();
 });
 
-export async function handleSearch(event, formType) {
+// Main search handler function
+async function handleSearch(event, formType) {
   console.log('handleSearch called with event:', event, 'and formType:', formType);
   
   let searchTerm = event.target.value.trim().toLowerCase();
@@ -181,8 +184,15 @@ function displayAutocompleteResults(data, formType, searchTerm) {
   }
 }
 
-export function executeSearch(formType) {
+function executeSearch(formType) {
   console.log('Executing search for formType:', formType);
   const input = $(`#search-input-${formType}`)[0];
   handleSearch({ target: input }, formType);
 }
+
+// Export for ES modules
+export { handleSearch, executeSearch };
+
+// Also attach to window for global access
+window.handleSearch = handleSearch;
+window.executeSearch = executeSearch;

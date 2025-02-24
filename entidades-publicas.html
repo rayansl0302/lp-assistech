@@ -359,13 +359,22 @@
     <script type="module">
       import { handleSearch, executeSearch } from "./assets/js/search.js";
 
+      // City Council search input
       document.getElementById("search-input-city-council").oninput = (event) =>
         handleSearch(event, "city_council");
+
+      // Municipality search input
       document.getElementById("search-input-municipality").oninput = (event) =>
         handleSearch(event, "municipality");
+
+      // Other Entities search input
       document.getElementById("search-input-other-entities").oninput = (
         event
       ) => handleSearch(event, "other_entities");
+
+      // Optional: Expose methods to window if needed in other scripts
+      window.handleSearch = handleSearch;
+      window.executeSearch = executeSearch;
     </script>
     <script src="/assets/js/config.js"></script>
 
