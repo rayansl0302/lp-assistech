@@ -2,7 +2,7 @@
 var API_CONFIG = {
   BASE_URL: 'https://api.assistechpublicacoes.com.br',
   STAGING_URL: 'https://api-staging.assistechpublicacoes.com.br',
-  APP_URL: 'https://app.assistechpublicacoes.com.br',
+  APP_URL: 'http://site.assistechpublicacoes.com.br/app/',
   API_VERSION: 'v1'
 };
 
