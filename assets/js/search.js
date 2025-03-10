@@ -155,14 +155,14 @@ function displayAutocompleteResults(data, formType, searchTerm) {
             
             if (cityHallData.data && cityHallData.data.length > 0) {
               const slug = cityHallData.data[0].slug;
-              const url = `${appUrl}/${slug}/diario-oficial`;
+              const url = `${appUrl}/${slug}/home`;
               console.log('Redirecting to URL:', url);
               window.location.href = url;
             } else {
               alert("Prefeitura não encontrada");
             }
           } else if (slug) {
-            const url = `${appUrl}/${slug}/diario-oficial`;
+            const url = `${appUrl}/${slug}/home`;
             console.log('Redirecting to URL:', url);
             window.location.href = url;
           } else {
