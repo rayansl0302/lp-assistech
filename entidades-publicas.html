@@ -172,7 +172,6 @@
                                   aria-label="Search"
                                   required
                                   id="search-input-city-council"
-                                  oninput="handleSearch(event, 'city_council')"
                                 />
                                 <!-- <button
                                   class="btn btn-style btn-primary"
@@ -221,7 +220,6 @@
                                   aria-label="Search"
                                   required
                                   id="search-input-municipality"
-                                  oninput="handleSearch(event, 'municipality')"
                                 />
                                 <!-- <button
                                   class="btn btn-style btn-primary"
@@ -270,7 +268,6 @@
                                   aria-label="Search"
                                   required
                                   id="search-input-other-entities"
-                                  oninput="handleSearch(event, 'other_entities')"
                                 />
                                 <!-- <button
                                   class="btn btn-style btn-primary"
@@ -349,24 +346,13 @@
     <!-- Adicione este script do jQuery antes do seu próprio script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module">
-      import { handleSearch, executeSearch } from "./assets/js/search.js";
-
-      // City Council search input
-      document.getElementById("search-input-city-council").oninput = (event) =>
-        handleSearch(event, "city_council");
-
-      // Municipality search input
-      document.getElementById("search-input-municipality").oninput = (event) =>
-        handleSearch(event, "municipality");
-
-      // Other Entities search input
-      document.getElementById("search-input-other-entities").oninput = (
-        event
-      ) => handleSearch(event, "other_entities");
-
-      // Optional: Expose methods to window if needed in other scripts
-      window.handleSearch = handleSearch;
-      window.executeSearch = executeSearch;
+      import { initialize } from "./assets/js/search.js";
+      
+      // Inicializar apenas uma vez quando o documento estiver pronto
+      $(document).ready(function() {
+        // Certificar-se de que a inicialização só acontece uma vez
+        initialize();
+      });
     </script>
     <script src="/assets/js/config.js"></script>
 
