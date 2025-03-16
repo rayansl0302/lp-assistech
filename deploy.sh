@@ -1,4 +1,3 @@
-gunzip site.docker.gz -f && \
-docker load --input site.docker && \
+#!/bin/bash
 docker compose down && \
 docker compose up -d

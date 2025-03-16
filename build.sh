@@ -54,6 +54,3 @@ DOCKER_BUILDKIT=${DOCKER_BUILDKIT} docker build --progress=${DOCKER_PROGRESS} \
 --build-arg BUILD_NUMBER=${BUILD_NUMBER} \
 --target=production-stage \
 .
-
-
-docker save sai:site | gzip > site.docker.gz
