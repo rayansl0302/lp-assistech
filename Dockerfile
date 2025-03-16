@@ -1,7 +1,5 @@
 FROM nginx:1.16-alpine AS production-stage
-
 WORKDIR /usr/share/nginx/html
-
 COPY . .
 
 # copy config
