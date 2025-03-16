@@ -33,3 +33,7 @@ Thumbs.db
 
 # Arquivos de produção
 build/
+
+*.gz
+site.docker
+site.docker.gz

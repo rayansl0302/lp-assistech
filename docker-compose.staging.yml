@@ -1,0 +1,8 @@
+services:
+  frontend:
+    image: dev-sai:site
+    restart: always
+    ports:
+      - "${DOCKER_FRONTEND_HTTP_PORT:-6979}:80"
+    environment:
+      - APP_ENV=dev
